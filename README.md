@@ -32,15 +32,15 @@ Bus-Booking-System/
 
 ## Tech Stack
 
-### Frontend (`bus-booking-frontend-react`)
+### Frontend 
 - React 18
 - Vite
 - React Router DOM
 - Axios
 - CSS (custom styles)
 
-### Backend (`Bus_Booking_System`)
-- Java 8
+### Backend
+- Java 8 
 - Spring Boot 2.7.x
 - Spring Web
 - Spring Data JPA
