@@ -4,17 +4,13 @@ A full-stack **Bus Booking System** with a **React + Vite frontend** and **Sprin
 
 ---
 
-## Repository Structure (Monorepo)
+## Repository Structure
 
 ```text
-bus-booking-system/
-├── Bus_Booking_System/              # Spring Boot backend (Java + Maven + MySQL)
-└── bus-booking-frontend-react/      # React frontend (Vite + Axios + React Router)
+Bus-Booking-System/
+├── backend/              # Spring Boot backend (Java + Maven + MySQL)
+└── frontend/             # React frontend (Vite + Axios + React Router)
 ```
-
-> ✅ Yes, keeping both frontend and backend in a **single GitHub repository** is a good setup for this project.
-
----
 
 ## Features
 
@@ -24,7 +20,6 @@ bus-booking-system/
 - Search bus routes (source, destination, date)
 - Book seats for a route
 - View **My Bookings**
-- View **My Ticket**
 - Cancel booking
 - Profile page
 
@@ -34,15 +29,6 @@ bus-booking-system/
 - View booking list with filters (booking ID / date / passenger ID)
 - View statistics (booking-related summary)
 - Add new bus route
-
-### Technical Features
-- **Session-based authentication** (JSESSIONID cookie)
-- Vite dev proxy (`/api -> http://localhost:8080`) to avoid CORS issues during local development
-- Axios API layer with centralized error parsing
-- Protected routes in frontend for `ADMIN` and `PASSENGER`
-- MySQL-backed backend with Spring Boot + JPA repositories
-
----
 
 ## Tech Stack
 
@@ -75,22 +61,6 @@ bus-booking-system/
   - `http://localhost:5173`
 - Frontend is configured to proxy `/api` requests to backend (`http://localhost:8080`) using Vite.
 
-### Security Note (Very Important)
-If your `application.yml` contains a **hardcoded DB password**, do **not** push it to GitHub.
-Use environment variables instead.
-
-Example (`application.yml`):
-
-```yaml
-spring:
-  datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/bus}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:}
-```
-
----
-
 ## Prerequisites
 
 Make sure you have installed:
@@ -111,7 +81,7 @@ Recommended:
 ### 1) Go to backend folder
 
 ```bash
-cd Bus_Booking_System
+cd backend
 ```
 
 ### 2) Configure database
@@ -124,7 +94,7 @@ CREATE DATABASE bus;
 ```
 
 > The backend config currently uses `ddl-auto: none`, so it expects tables to already exist.
-> If your schema is not created yet, create/import the required tables before running.
+> If your schema is not created yet, create the required tables before running.
 
 ### 3) Run backend
 
@@ -142,7 +112,7 @@ Backend should start on:
 ### 1) Go to frontend folder
 
 ```bash
-cd bus-booking-frontend-react
+cd frontend
 ```
 
 ### 2) Install dependencies
@@ -176,7 +146,6 @@ Backend logic:
 Roles used in frontend:
 - `ADMIN`
 - `PASSENGER`
-- `GUEST`
 
 ---
 
@@ -214,7 +183,6 @@ Roles used in frontend:
 - Search Routes
 - Book Seats
 - My Bookings
-- My Ticket
 - Profile
 
 ### Admin UI
@@ -222,45 +190,8 @@ Roles used in frontend:
 - Admin Bookings
 - Admin Add Route
 
----
-
-## Suggested `.gitignore` Notes (for this Monorepo)
-
-Make sure these are ignored before pushing to GitHub:
-
-- `node_modules/`
-- `dist/`
-- `target/`
-- `.idea/`, `.vscode/`
-- `*.log`
-- local env files (`.env`, `.env.*`)
-- local secrets in backend config
-
-Also ensure **`node_modules`** and **`target`** are not already staged in Git.
-
----
-
-## Future Improvements (Optional)
-
-- Password hashing (BCrypt)
-- Spring Security integration
-- JWT authentication (if moving away from session-based auth)
-- Seat map UI improvements
-- Email/SMS booking confirmation
-- Docker setup for backend + frontend + MySQL
-- Deployment (Render / Railway / VPS / AWS)
-- Test coverage (frontend and backend)
-
----
 
 ## Author
 
-**Aaditya Shah**  
+**Ayushi Sonih**  
 B.Tech CSE | Full-Stack Development | React + Spring Boot
-
----
-
-## License
-
-This project is for learning / academic / portfolio use.
-
