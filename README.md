@@ -193,5 +193,5 @@ Roles used in frontend:
 
 ## Author
 
-**Ayushi Sonih**  
+**Ayushi Soni**  
 B.Tech CSE | Full-Stack Development | React + Spring Boot
